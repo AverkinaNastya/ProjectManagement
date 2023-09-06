@@ -1,0 +1,340 @@
+﻿<Window x:Class="ProjectManagement.Views.Windows.AddTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectManagement.Views.Windows"
+        xmlns:ui ="clr-namespace:ProjectManagement.Views.UserControls"
+        xmlns:vm="clr-namespace:ProjectManagement.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:pm="clr-namespace:ProjectManagement"
+        mc:Ignorable="d"
+        Title="Новая задача"
+        Height="600" Width="850"
+        Style="{StaticResource StyleWindowChrome}"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:AddTaskWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Resources/Styles/StyleTextBoxBorderRadius.xaml"/>
+                <ResourceDictionary Source="../../Resources/DataTemple/ListBoxEmployees.xaml"/>
+                <ResourceDictionary Source="../../Resources/Styles/StyleBtnHeaderWindow.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border CornerRadius="20"
+            Background="#A1A3B4"
+            BorderBrush="Black"
+            BorderThickness="1">
+        <Grid>
+            <Grid.Resources>
+                <Style BasedOn="{StaticResource TextBoxBorderRadius}"
+                           TargetType="TextBox">
+                    <Setter Property="Margin" Value="8,4"/>
+                    <Setter Property="Width" Value="240"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ui:HeaderWindowUI Height="30"
+                               Grid.Row="0"
+                               Grid.ColumnSpan="4"/>
+            <TextBlock Text="Создать новую задачу"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="4"
+                       TextAlignment="Center"
+                       FontSize="20"
+                       Padding="0, 12"
+                       Foreground="#46486C"
+                       FontWeight="Bold"/>
+            <Grid Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.6*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Название"
+                           FontSize="20"
+                           Margin="24,0"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Foreground="#46486C"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                         VerticalAlignment="Center"
+                         Grid.Row="0"
+                         Grid.Column="1"/>
+                <TextBlock Text="Фаза"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="24,0,0,0"
+                           Foreground="#46486C"
+                           TextWrapping="Wrap"
+                           FontWeight="Medium"/>
+                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                          ItemsSource="{Binding Phases}"
+                          SelectedItem="{Binding SelectPhase}"
+                          VerticalAlignment="Center"
+                          Grid.Row="1"
+                          Width="240"
+                          Margin="8,4"
+                          Grid.Column="1">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="{x:Type pm:Phase}">
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Связанные задачи"
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="24,0,0,0"
+                           Foreground="#46486C"
+                           TextWrapping="Wrap"
+                           FontWeight="Medium"/>
+                <DockPanel Grid.Row="2"
+                           Grid.Column="2"
+                           VerticalAlignment="Center">
+                    <fa:SvgAwesome Icon="Solid_Search"
+                                       Foreground="#46486C"
+                                       Height="24"
+                                       Margin="4,0"/>
+                    <TextBox Style="{StaticResource TextBoxBorderRadius}"
+                             Text="{Binding FilterStr,
+                                    UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,32,0"
+                             BorderThickness="0"
+                             BorderBrush="Transparent"
+                             Name="FindStr">
+                    </TextBox>
+                </DockPanel>
+                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                          ItemsSource="{Binding Tasks,
+                                        UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Row="2" Grid.Column="1"
+                          VerticalAlignment="Center"
+                          IsDropDownOpen="{Binding DropDownOpen,
+                                           UpdateSourceTrigger=PropertyChanged}"
+                          SelectedItem="{Binding SelectTask,
+                                         UpdateSourceTrigger=PropertyChanged}"
+                          Panel.ZIndex="-1"
+                          Margin="34,0,8,0"
+                          BorderThickness="0,0,1,0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="{x:Type pm:Task}">
+                            <TextBlock Text="{Binding Name}"
+                                           Foreground="#46486C"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Border Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        Background="#D9D9D9"
+                        CornerRadius="7"
+                        Margin="24,12,8,12">
+                    <ListBox Background="Transparent"
+                             d:ItemsSource="{d:SampleData ItemCount=5}"
+                             ItemsSource="{Binding MainTasks}"
+                             SelectedItem="{Binding SelectMainTask}"
+                             Height="54"
+                             BorderThickness="0"
+                             Margin="6,7">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type pm:Task}">
+                                <DataTemplate.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Foreground" Value="#46486C"/>
+                                        <Setter Property="FontSize" Value="16"/>
+                                    </Style>
+                                </DataTemplate.Resources>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding DateComplet}"/>
+                                    <TextBlock Text="{Binding Name}"
+                                               Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Удалить задачу"
+                                          Command="{Binding DeleteMainTaskCommand}"/>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                </Border>
+                
+
+            </Grid>
+            <Grid Grid.Column="2"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="2"
+                  VerticalAlignment="Bottom"
+                  Margin="0,0,8,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.6*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Исполнитель"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="24,0,0,0"
+                           Foreground="#46486C"
+                           TextWrapping="Wrap"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding Executor}"
+                         Grid.Column="1"
+                         VerticalAlignment="Center"
+                         IsReadOnly="True"/>
+
+                <Button Grid.Column="1"
+                        Style="{StaticResource BtnHeaderWindow}"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,14,0"
+                        Background="#d9d9d9"
+                        Width="30"
+                        VerticalAlignment="Center"
+                        Command="{Binding AddExecutorCommand}">
+                    <fa:SvgAwesome Icon="Solid_Pen"
+                                   Width="24"
+                                   Foreground="#46486C"/>
+                </Button>
+
+                <TextBlock Text="Производит контроль"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="24,0,0,0"
+                           Foreground="#46486C"
+                           TextWrapping="Wrap"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding Responsib}"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         VerticalAlignment="Center"
+                         IsReadOnly="True"/>
+                <Button Grid.Column="1"
+                        Grid.Row="1"
+                        Style="{StaticResource BtnHeaderWindow}"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,14,0"
+                        Background="#d9d9d9"
+                        Width="30"
+                        Padding="0,8"
+                        VerticalAlignment="Center"
+                        Command="{Binding AddResponsibCommand}">
+                    <fa:SvgAwesome Icon="Solid_Pen"
+                                   Width="24"
+                                   Foreground="#46486C"/>
+                </Button>
+                <TextBlock Text="Дата начала"
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="24,0,0,0"
+                           Foreground="#46486C"
+                           TextWrapping="Wrap"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding DateStartStr,
+                                UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Column="1"
+                         Grid.Row="2"
+                         IsReadOnly="true"/>
+                <TextBlock Text="Дата окончания"
+                           Grid.Row="3"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="24,0,0,0"
+                           Foreground="#46486C"
+                           TextWrapping="Wrap"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding DateEndStr,
+                                UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Column="1"
+                         Grid.Row="3"
+                         VerticalAlignment="Center"
+                         IsReadOnly="True"/>
+                <TextBlock Text="Количество дней"
+                           Grid.Row="4"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="24,0,0,0"
+                           Foreground="#46486C"
+                           TextWrapping="Wrap"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding CountDays,
+                                UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Column="1"
+                         Grid.Row="4"
+                         VerticalAlignment="Center"
+                         IsEnabled="True"/>
+            </Grid>
+
+            <StackPanel Grid.Row="3"
+                        Grid.ColumnSpan="4"
+                        Margin="0, 10, 0, 24">
+                <TextBlock Text="Комментарий"
+                           FontSize="20"
+                           Margin="24,0,0,0"
+                           Foreground="#46486C"
+                           TextWrapping="Wrap"
+                           FontWeight="Medium"/>
+                <TextBox Width="820"
+                         Height="120"
+                         Text="{Binding Comment,
+                                UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            
+            <Button Content="Добавить"
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Margin="12, 4"
+                    Command="{Binding AddTaskCommand}"/>
+            <Button Content="Отмена"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="4"
+                    Margin="12, 4"
+                    Command="{Binding BackCommand}"/>
+        </Grid>
+    </Border>
+</Window>

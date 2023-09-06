@@ -1,0 +1,144 @@
+﻿<Page x:Class="ProjectManagement.Views.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:conv="clr-namespace:ProjectManagement.Infrastructure.Converter"
+      xmlns:vm ="clr-namespace:ProjectManagement.ViewModels"
+      xmlns:local="clr-namespace:ProjectManagement"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      d:FontSize="18"
+      Title="MainPage">
+    <Page.DataContext>
+        <vm:MainPageViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <conv:HeightPageToSizeBtnConvecter x:Key="HeightPageToSizeBtnConvecter"/>
+                    <conv:PhaseToTasksStatusConverter x:Key="PhaseToTasksStatusConverter"/>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../../Resources/Styles/StyleBtnHeaderWindow.xaml"/>
+                <ResourceDictionary Source="../../Resources/Styles/StyleTextBoxBorderRadius.xaml"/>
+                <ResourceDictionary Source="../../Resources/DataTemple/ListBoxProjects.xaml"/>
+                <ResourceDictionary Source="../../Resources/DataTemple/ListBoxTasks.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#46486C"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+                <Setter Property="Margin" Value="8"/>
+                <Setter Property="FontSize" Value="{Binding ActualHeight, 
+                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}},
+                            Converter={StaticResource HeightPageToSizeBtnConvecter}}"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.ColumnSpan="2"
+                BorderThickness="0,0,0,1"
+                BorderBrush="#46486C">
+            <TextBlock d:Text="Добрый пожаловать, Аверкина Анастасия Максимовна!"
+                   Text="{Binding HelloText}"
+                   FontSize="24"
+                   Margin="8"/>
+        </Border>
+        <TextBlock Text="Мои проекты:" Grid.Row="1"/>
+        <Border Background="#d9d9d9"
+                BorderBrush="Gray"
+                CornerRadius="14"
+                Padding="0,15"
+                Margin="8"
+                Grid.Row="2"
+                >
+            <ListBox Background="Transparent"
+                     ItemsSource="{Binding Projects}"
+                     BorderThickness="0"
+                     d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Project}">
+                        <DataTemplate.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="#46486C"/>
+                                <Setter Property="TextDecorations" Value="Underline"/>
+                                <Setter Property="FontWeight" Value="Medium"/>
+                                <Setter Property="Margin" Value="4,2"/>
+                                <Setter Property="FontSize" Value="{Binding ActualHeight, 
+                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}},
+                            Converter={StaticResource HeightPageToSizeBtnConvecter}}"/>
+                            </Style>
+                        </DataTemplate.Resources>
+                        <Button Style="{StaticResource BtnHeaderWindow}"
+                                Width="auto"
+                                Command="{Binding DataContext.OpenInfoProjectCommand, 
+                                          RelativeSource={RelativeSource AncestorType=Page}}"
+                                CommandParameter="{Binding DataContext, 
+                                    RelativeSource={RelativeSource Mode=Self}}">
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </Button>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+        
+        <TextBlock Text="Мои задачи:" Grid.Row="1" Grid.Column="1"/>
+        <Border Background="#d9d9d9"
+                BorderBrush="Gray"
+                CornerRadius="14"
+                Padding="0,15"
+                Margin="8"
+                Grid.Row="2"
+                Grid.Column="1">
+            <ListBox Background="Transparent"
+                     ItemsSource="{Binding Tasks}"
+                     BorderThickness="0"
+                     d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Task}">
+                        <DataTemplate.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="#46486C"/>
+                                <Setter Property="TextDecorations" Value="Underline"/>
+                                <Setter Property="FontWeight" Value="Medium"/>
+                                <Setter Property="Margin" Value="4,2"/>
+                                <Setter Property="FontSize" Value="{Binding ActualHeight, 
+                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}},
+                            Converter={StaticResource HeightPageToSizeBtnConvecter}}"/>
+                            </Style>
+                        </DataTemplate.Resources>
+                        <Button Command="{Binding DataContext.EditTaskProjectCommand, 
+                                          RelativeSource={RelativeSource AncestorType=Page}}"
+                                CommandParameter="{Binding DataContext, 
+                                    RelativeSource={RelativeSource Mode=Self}}">
+                            <Button.Resources>
+                                <Style TargetType="Button" BasedOn="{StaticResource BtnHeaderWindow}">
+                                    <Setter Property="Width" Value="auto"/>
+                                </Style>
+                            </Button.Resources>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" SharedSizeGroup="DateCol"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding DateComplet}" TextDecorations="None"/>
+                                <TextBlock Text="{Binding Name}" Grid.Column="1"/>
+                            </Grid>
+                        </Button>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+    </Grid>
+</Page>

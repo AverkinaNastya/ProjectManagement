@@ -1,0 +1,463 @@
+﻿<Page x:Class="ProjectManagement.Views.Pages.OrganizationalStructurePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:vm="clr-namespace:ProjectManagement.ViewModels"
+      xmlns:conv="clr-namespace:ProjectManagement.Infrastructure.Converter"
+      xmlns:pm ="clr-namespace:ProjectManagement"
+      xmlns:local="clr-namespace:ProjectManagement.Views.Pages"
+      xmlns:fa ="http://schemas.fontawesome.com/icons/"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrganizationalStructurePage">
+    <Page.DataContext>
+        <vm:OrganizationalStructurePageViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <conv:HeightPageToSizeBtnConvecter x:Key="HeightPageToSizeBtnConvecter"/>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../../Resources/Styles/StyleTabControlRadius.xaml"/>
+                <ResourceDictionary Source="../../Resources/Styles/StyleTextBoxBorderRadius.xaml"/>
+                <ResourceDictionary Source="../../Resources/Styles/StyleButtonBorderRadius.xaml"/>
+                <ResourceDictionary Source="../../Resources/Styles/StyleBtnHeaderWindow.xaml"/>
+                <ResourceDictionary Source="../../Resources/DataTemple/ListBoxProjects.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+
+    </Page.Resources>
+    <Grid>
+        <TabControl Background="Transparent">
+            <TabControl.Resources>
+
+                <Style BasedOn="{StaticResource StyleTabControlRadius}"
+                       TargetType="TabItem">
+                    <Setter Property="FontSize" Value="{Binding ActualHeight, 
+                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}},
+                            Converter={StaticResource HeightPageToSizeBtnConvecter}}"/>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="Сотрудники">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*" MaxWidth="700" MinWidth="350"/>
+                    </Grid.ColumnDefinitions>
+                    <DockPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <fa:SvgAwesome Icon="Solid_Search"
+                                           Height="32"
+                                           Foreground="#46486C"
+                                           Margin="4"/>
+                            <TextBox Style="{StaticResource TextBoxBorderRadius}"
+                                     Margin="0,4"
+                                     FontSize="18"
+                                     Text="{Binding FilterStr,
+                                                UpdateSourceTrigger=PropertyChanged}"/>
+                        </DockPanel>
+                        <Button Content="Добавить сотрудника"
+                                DockPanel.Dock="Bottom"
+                                Margin="4,8,4,15"
+                                Visibility="{Binding AdminCurrent}"
+                                Command="{Binding AddEmployeeSystemCommand}"/>
+                        <DataGrid ItemsSource="{Binding Employees}"
+                                  Background="Transparent"
+                                  GridLinesVisibility="Horizontal"
+                                  BorderBrush="Transparent"
+                                  Margin="0,4,0,0"
+                                  AutoGenerateColumns="False"
+                                  SelectedItem="{Binding SelectEmployee,
+                                                    UpdateSourceTrigger=PropertyChanged}"
+                                  IsReadOnly="True"
+                                  CanUserReorderColumns="False"
+                                  CanUserResizeColumns="False"
+                                  HeadersVisibility="Column"
+                                  SelectionMode="Single" 
+                                  CanUserAddRows="False" 
+                                  CanUserDeleteRows="False" 
+                                  CanUserResizeRows="False" 
+                                  RowDetailsVisibilityMode="Collapsed">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#46486C"/>
+                                    <Setter Property="Foreground" Value="#D9D9D9"/>
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                    <Setter Property="Padding" Value="4"/>
+                                    <Setter Property="BorderBrush" Value="#D9D9D9"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="#D9D9D9"/>
+                                    <Setter Property="Foreground" Value="#46486C"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#b4b4d2"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.CellStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Имя"
+                                                    Width="*"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding Name}"/>
+                                <DataGridTextColumn Header="Фамилия"
+                                                    Width="*"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding Surname}"/>
+                                <DataGridTextColumn Header="Отчество"
+                                                    Width="*"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding Patronymic}"/>
+                                <DataGridTextColumn Header="Департамент"
+                                                    Width="*"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding PostNavigation.DepartmentNavigation.Name}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                    <Grid Grid.Column="1">
+                        <Border Background="#D9D9D9"
+                                CornerRadius="20"
+                                Margin="10,4,0,10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Информация о сотруднике"
+                                           Foreground="#46486C"
+                                           TextAlignment="Center"
+                                           FontSize="18"
+                                           FontWeight="Bold"
+                                           Padding="0,8"/>
+                                <Grid Grid.Row="1"
+                                      Margin="0,8,0,0"
+                                      DataContext="{Binding SelectEmployee}">
+                                    <Grid.Resources>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="#46486C"/>
+                                            <Setter Property="FontSize" Value="18"/>
+                                            <Setter Property="Margin" Value="10,0,0,8"/>
+                                        </Style>
+                                    </Grid.Resources>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" MaxHeight="45"/>
+                                        <RowDefinition Height="*" MaxHeight="45"/>
+                                        <RowDefinition Height="*" MaxHeight="45"/>
+                                        <RowDefinition Height="*" MaxHeight="45"/>
+                                        <RowDefinition Height="*" MaxHeight="45"/>
+                                        <RowDefinition Height="*" MaxHeight="45"/>
+                                        <RowDefinition Height="3.5*"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Фамилия"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="Имя"
+                                               Grid.Row="1"
+                                               Grid.Column="0"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="Отчество"
+                                               Grid.Row="2"
+                                               Grid.Column="0"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="День рождения"
+                                               Grid.Row="3"
+                                               Grid.Column="0"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="Департамент"
+                                               Grid.Row="4"
+                                               Grid.Column="0"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="Должность"
+                                               Grid.Row="5"
+                                               Grid.Column="0"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="Проекты"
+                                               Grid.Row="6"
+                                               Grid.Column="0"
+                                               FontWeight="Bold"
+                                               Visibility="{Binding DataContext.AdminCurrent, RelativeSource={RelativeSource AncestorType=Page}}"/>
+                                    <TextBlock Text="{Binding Surname}"
+                                               Grid.Row="0"
+                                               Grid.Column="1"
+                                               Foreground="Black"/>
+                                    <TextBlock Text="{Binding Name}"
+                                               Grid.Row="1"
+                                               Grid.Column="1"
+                                               Foreground="Black"/>
+                                    <TextBlock Text="{Binding Patronymic}"
+                                               Grid.Row="2"
+                                               Grid.Column="1"
+                                               Foreground="Black"/>
+                                    <TextBlock Text="{Binding DateBirth}"
+                                               Grid.Row="3"
+                                               Grid.Column="1"
+                                               Foreground="Black"/>
+                                    <TextBlock Text="{Binding PostNavigation.DepartmentNavigation.Name}"
+                                               Grid.Row="4"
+                                               Grid.Column="1"
+                                               Foreground="Black"/>
+                                    <TextBlock Text="{Binding PostNavigation.Name}"
+                                               Grid.Column="1"
+                                               Grid.Row="5"
+                                               Foreground="Black"/>
+                                    <ListBox ItemsSource="{Binding Projects}"
+                                             Visibility="{Binding DataContext.AdminCurrent, RelativeSource={RelativeSource AncestorType=Page}}"
+                                             Grid.Column="1"
+                                             Grid.Row="6"
+                                             Foreground="Black"
+                                             Background="Transparent"
+                                             BorderThickness="0"
+                                             d:ItemsSource="{d:SampleData ItemCount=8}">
+                                        <ListBox.Resources>
+                                            <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}"/>
+                                        </ListBox.Resources>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type pm:Project}">
+                                                <DataTemplate.Resources>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Foreground" Value="#46486C"/>
+                                                        <Setter Property="FontSize" Value="16"/>
+                                                        <Setter Property="TextDecorations" Value="Underline"/>
+                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                        <Setter Property="Margin" Value="4,2"/>
+                                                    </Style>
+                                                </DataTemplate.Resources>
+                                                <Grid>
+                                                    <Button Style="{StaticResource BtnHeaderWindow}"
+                                                            Width="auto"
+                                                            Command="{Binding DataContext.OpenInfoProjectCommand, 
+                                                                      RelativeSource={RelativeSource AncestorType=Page}}"
+                                                            CommandParameter="{Binding DataContext, 
+                                                                RelativeSource={RelativeSource Mode=Self}}">
+                                                        <TextBlock Text="{Binding Path=Name}"/>
+                                                    </Button>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                </Grid>
+                                <Grid Grid.Row="7">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition MinWidth="180"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Content="Изменить"
+                                            Margin="4, 8"
+                                            Padding="32, 0"
+                                            Visibility="{Binding AdminCurrent}"
+                                            Command="{Binding EditEmployeeSystemCommand}"/>
+                                    <Button Content="Заблокировать"
+                                            Grid.Column="1"
+                                            Margin="4, 8"
+                                            Visibility="{Binding AdminCurrent}"
+                                            Command="{Binding BlockEmployeeSystemCommand}"/>
+                                </Grid>
+                                <Border Grid.Row="7"
+                                            Grid.ColumnSpan="2"
+                                            Background="#46486C"
+                                            Opacity="0.4"
+                                            CornerRadius="0,0,20,20"
+                                            Panel.ZIndex="-1"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Организационная структура">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Foreground" Value="#46486C"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                        <Style TargetType="fa:SvgAwesome">
+                            <Setter Property="Height" Value="25"/>
+                            <Setter Property="Width" Value="25"/>
+                            <Setter Property="Foreground" Value="#46486C"/>
+                        </Style>
+                        <Style TargetType="ListView">
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"
+                              Margin="10, 4, 8, 4">
+                            <TextBlock Text="Департаменты"/>
+                            <Button Style="{StaticResource BtnHeaderWindow}"
+                                    HorizontalAlignment="Right"
+                                    Command="{Binding AddDepartamentSystemCommand}"
+                                    Visibility="{Binding AdminCurrent}">
+                                <fa:SvgAwesome Icon="Solid_Plus"/>
+                            </Button>
+                        </Grid>
+                        <Border Grid.Row="0"
+                                Background="#D9D9D9"
+                                Opacity="0.4"
+                                CornerRadius="10,10, 0, 0"
+                                Panel.ZIndex="-1"/>
+                        <ListBox Grid.Row="1"
+                                 ItemsSource="{Binding Departments}"
+                                 Background="Transparent"
+                                 d:ItemsSource="{d:SampleData ItemCount=5}"
+                                 SelectedItem="{Binding SelectDepartament, UpdateSourceTrigger=PropertyChanged}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DataTemplate.Resources>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="#46486C"/>
+                                            <Setter Property="FontSize" Value="20"/>
+                                            <Setter Property="FontWeight" Value="Medium"/>
+                                            <Setter Property="Margin" Value="8, 4"/>
+                                        </Style>
+                                    </DataTemplate.Resources>
+                                    <Grid>
+                                        <TextBlock Text="{Binding Path=Name}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <WrapPanel Orientation="Horizontal"
+                                    Grid.Row="2"
+                                    Visibility="{Binding AdminCurrent}">
+                            <Button Content="Изменить"
+                                    Command="{Binding EditDepartamentSystemCommand}"/>
+                            <Button Content="Удалить"
+                                    Command="{Binding DeleteDepartamentCommand}"/>
+                        </WrapPanel>
+                        <Border Grid.Row="2"
+                                Background="#46486C"
+                                Opacity="0.4"
+                                CornerRadius="0,0,10,10"
+                                Panel.ZIndex="-1"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"
+                              Margin="10, 4, 8, 4">
+                            <TextBlock Text="Должности"/>
+                            <Button Style="{StaticResource BtnHeaderWindow}"
+                                    HorizontalAlignment="Right"
+                                    Command="{Binding AddPostSystemCommand}"
+                                    Visibility="{Binding AdminCurrent}">
+                                <fa:SvgAwesome Icon="Solid_Plus"/>
+                            </Button>
+                        </Grid>
+                        <Border Grid.Row="0"
+                                Background="#D9D9D9"
+                                Opacity="0.4"
+                                CornerRadius="10,10, 0, 0"
+                                Panel.ZIndex="-1"/>
+                        <ListBox Grid.Row="1"
+                                 d:ItemsSource="{d:SampleData ItemCount=5}"
+                                 ItemsSource="{Binding SelectDepartament.Posts}"
+                                 Background="Transparent"
+                                 SelectedItem="{Binding SelectPost, UpdateSourceTrigger=PropertyChanged}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DataTemplate.Resources>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="#46486C"/>
+                                            <Setter Property="FontSize" Value="20"/>
+                                            <Setter Property="FontWeight" Value="Medium"/>
+                                            <Setter Property="Margin" Value="8, 4"/>
+                                        </Style>
+                                    </DataTemplate.Resources>
+                                    <Grid>
+                                        <TextBlock Text="{Binding Path=Name}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <WrapPanel Orientation="Horizontal"
+                                    Grid.Row="2"
+                                    Visibility="{Binding AdminCurrent}">
+                            <WrapPanel.Resources>
+                                
+                            </WrapPanel.Resources>
+                            <Button Content="Изменить"
+                                    Command="{Binding EditPostCommand}"/>
+
+                            <Button Content="Удалить"
+                                    Command="{Binding DeletePostCommand}"/>
+                        </WrapPanel>
+                        <Border Grid.Row="2"
+                                Background="#46486C"
+                                Opacity="0.4"
+                                CornerRadius="0,0,10,10"
+                                Panel.ZIndex="-1"/>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Сотрудники"
+                                   DockPanel.Dock="Top"
+                                   Height="25"
+                                   Margin="10, 4, 8, 4"/>
+                        <Border Grid.Row="0"
+                                Background="#D9D9D9"
+                                Opacity="0.4"
+                                CornerRadius="10,10, 0, 0"
+                                Panel.ZIndex="-1"/>
+                        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}"
+                                 ItemsSource="{Binding SelectPostEmployees}"
+                                 Grid.Row="1"
+                                 Background="Transparent">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DataTemplate.Resources>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="#46486C"/>
+                                            <Setter Property="FontSize" Value="20"/>
+                                            <Setter Property="FontWeight" Value="Medium"/>
+                                            <Setter Property="Margin" Value="8, 4"/>
+                                        </Style>
+                                    </DataTemplate.Resources>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Surname}"/>
+                                        <TextBlock Text="{Binding Name[0]}"/>
+                                        <TextBlock Text="{Binding Patronymic[0]}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

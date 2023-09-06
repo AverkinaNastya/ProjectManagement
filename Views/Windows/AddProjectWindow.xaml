@@ -1,0 +1,232 @@
+﻿<Window x:Class="ProjectManagement.Views.Windows.AddProjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectManagement.Views.Windows"
+        xmlns:ui ="clr-namespace:ProjectManagement.Views.UserControls"
+        xmlns:vm="clr-namespace:ProjectManagement.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:pm="clr-namespace:ProjectManagement"
+        mc:Ignorable="d"
+        Title="Новый проект"
+        Height="420" Width="850"
+        Style="{StaticResource StyleWindowChrome}"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:AddProjectWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Resources/Styles/StyleTextBoxBorderRadius.xaml"/>
+                <ResourceDictionary Source="../../Resources/DataTemple/ListBoxEmployees.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border CornerRadius="20"
+            Background="#A1A3B4"
+            BorderBrush="Black"
+            BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ui:HeaderWindowUI Height="30"
+                               Grid.Row="0"
+                               Grid.ColumnSpan="4"/>
+            <TextBlock Text="Создать новый проект"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="4"
+                       TextAlignment="Center"
+                       FontSize="20"
+                       Padding="0, 12"
+                       Foreground="#46486C"
+                       FontWeight="Bold"/>
+            <Grid Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.6*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="37*"/>
+                    <RowDefinition Height="37*"/>
+                    <RowDefinition Height="27*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style BasedOn="{StaticResource TextBoxBorderRadius}"
+                           TargetType="TextBox">
+                        <Setter Property="Margin" Value="8,4"/>
+                        <Setter Property="Width" Value="240"/>
+                    </Style>
+                </Grid.Resources>
+                <TextBlock Text="Название"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="24,0"
+                           Foreground="#46486C"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         VerticalAlignment="Center"/>
+                <TextBlock Text="Дата начала"
+                           FontSize="20"
+                           Margin="24,0"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           Foreground="#46486C"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding Date, UpdateSourceTrigger=PropertyChanged}"
+                         VerticalAlignment="Center"
+                         Grid.Row="1"
+                         Grid.Column="1"/>
+                <TextBlock Text="Комментарий"
+                           FontSize="20"
+                           Margin="24,0"
+                           Grid.Row="2"
+                           Grid.ColumnSpan="2"
+                           Foreground="#46486C"
+                           FontWeight="Medium"/>
+                <TextBox Text="{Binding Comment,
+                                UpdateSourceTrigger=PropertyChanged}" Grid.Row="3"
+                         Grid.ColumnSpan="2"
+                         Width="390"
+                         Margin="20,4,8,4"
+                         Height="100"
+                         TextWrapping="Wrap"/>
+
+            </Grid>
+            <Grid Grid.Column="2"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="2"
+                  VerticalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Сотрудники назначенные на проект"
+                               TextAlignment="Center"
+                               FontSize="20"
+                               Margin="8,0,8,18"
+                               Foreground="#46486C"
+                               FontWeight="Medium"/>
+                    <DockPanel Grid.Row="1">
+                        <fa:SvgAwesome Icon="Solid_Search"
+                                       Foreground="#46486C"
+                                       Height="28"
+                                       Margin="4,0"/>
+                        <TextBox Style="{StaticResource TextBoxBorderRadius}"
+                                 Text="{Binding FilterStr,
+                                        UpdateSourceTrigger=PropertyChanged}"
+                                 Margin="0,0,32,0"
+                                 BorderThickness="0"
+                                 Name="FindStr">
+                            <i:Interaction.Triggers>
+                                <i:DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBox}, Path=IsFocused}" Value="True">
+                                    <i:InvokeCommandAction Command="{Binding ClickFilterCommand}"/>
+                                </i:DataTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                    </DockPanel>
+                    <ComboBox Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding Employees,
+                                            UpdateSourceTrigger=PropertyChanged}"
+                              Grid.Row="1"
+                              IsDropDownOpen="{Binding DropDownOpen,
+                                               UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding SelectEmployee,
+                                             UpdateSourceTrigger=PropertyChanged}"
+                              Panel.ZIndex="-1"
+                              Margin="34,0,8,0"
+                              BorderThickness="0,0,1,0">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type pm:Employee}">
+                                <DataTemplate.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Foreground" Value="#46486C"/>
+                                        <Setter Property="Margin" Value="0,0,8,0"/>
+                                    </Style>
+                                </DataTemplate.Resources>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Surname}"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                    <TextBlock Text="{Binding Patronymic}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ListBox Style="{StaticResource StyleListBoxEmployees}"
+                             Grid.Row="2"
+                             Height="120"
+                             Margin="8,10,8,4"
+                             ItemsSource="{Binding EmployeesListBox}"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             SelectedItem="{Binding SelectedEmployeesListBox,
+                                            UpdateSourceTrigger=PropertyChanged}"
+                             d:ItemsSource="{d:SampleData ItemCount=5}">
+                        <ListBox.Resources>
+                            <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}"/>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type pm:Employee}">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal"
+                                    Margin="8,4,0,4">
+                                        <StackPanel.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="#46486C"/>
+                                                <Setter Property="FontSize" Value="14"/>
+                                                <Setter Property="Margin" Value="0,0,8,0"/>
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <TextBlock Text="{Binding Surname}"/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                        <TextBlock Text="{Binding Patronymic}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Удалить сотрудника"
+                                          Command="{Binding DeleteSelectEmployeesCommand}"/>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                </Grid>
+
+            </Grid>
+
+            <Button Content="Добавить"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Margin="12, 4"
+                    Command="{Binding AddProjectCommand}"/>
+            <Button Content="Отмена"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    Margin="12, 4"
+                    Command="{Binding BackCommand}"/>
+        </Grid>
+    </Border>
+</Window>

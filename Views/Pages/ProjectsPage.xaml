@@ -1,0 +1,228 @@
+﻿<Page x:Class="ProjectManagement.Views.Pages.ProjectsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectManagement.Views.Pages"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:pm="clr-namespace:ProjectManagement"
+      xmlns:vm="clr-namespace:ProjectManagement.ViewModels"
+      xmlns:fa="http://schemas.fontawesome.com/icons/"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProjectsPage">
+    <Page.DataContext>
+        <vm:ProjectsPageViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <CollectionViewSource x:Key="SourceProject" Source="{Binding Projects, UpdateSourceTrigger=PropertyChanged}"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Resources/Styles/StyleTextBoxBorderRadius.xaml"/>
+                <ResourceDictionary Source="../../Resources/Styles/StyleBtnHeaderWindow.xaml"/>
+                <ResourceDictionary Source="../../Resources/DataTemple/ListBoxProjects.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid d:Background="#A1A3B4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="2"
+                Panel.ZIndex="-1"
+                Opacity="0.4"
+                Background="#D9D9D9"
+                CornerRadius="0, 0, 20, 20"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="{x:Type fa:SvgAwesome}">
+                    <Setter Property="Foreground" Value="#46486C"/>
+                    <Setter Property="Height" Value="28"/>
+                    <Setter Property="Margin" Value="8,4"/>
+                </Style>
+            </Grid.Resources>
+            <fa:SvgAwesome Icon="Solid_Search"
+                           Grid.Column="0"/>
+            <TextBox Grid.Column="1"
+                     Text="{Binding FilterStr,
+                            UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TextBoxBorderRadius}"
+                     VerticalAlignment="Center"
+                     Margin="8,0"
+                     BorderBrush="#46486C"/>
+            <Button Grid.Column="2"
+                    Command="{Binding VisibilityFilterCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource BtnHeaderWindow}">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Margin" Value="8,4"/>
+                        <Setter Property="Padding" Value="0"/>
+                    </Style>
+                </Button.Style>
+                <fa:SvgAwesome Icon="Solid_Filter" Margin="0"/>
+            </Button>
+        </Grid>
+        <WrapPanel Visibility="{Binding VisibilityFilter, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"
+                       Orientation="Horizontal"
+                       Margin="2, 4, 2, 8">
+            <WrapPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="#46486C"/>
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                    <Setter Property="Margin" Value="8, 4"/>
+                </Style>
+            </WrapPanel.Resources>
+            <StackPanel Orientation="Horizontal"
+                            Margin="4">
+                <TextBlock Text="Дата начала"/>
+                <DatePickerTextBox Text="{Binding StartDateFirst, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="-"/>
+                <DatePickerTextBox Text="{Binding StartDateSecond, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                                Margin="4">
+                <TextBlock Text="Дата окончания"/>
+                <DatePickerTextBox Text="{Binding CompletDateFirst, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="-"/>
+                <DatePickerTextBox Text="{Binding CompletDateSecond, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                                Margin="4">
+                <TextBlock Text="Статус"/>
+                <GroupBox BorderThickness="0"
+                          Grid.Row="3"
+                          Grid.Column="1"
+                          Margin="8,4,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Foreground="Black"
+                                     Content="Все"
+                                     IsChecked="{Binding AllStatus,
+                                                 UpdateSourceTrigger=PropertyChanged}"/>
+                        <RadioButton Foreground="Black"
+                                     Content="Завершенные"
+                                     IsChecked="{Binding CompletStatus,
+                                                 UpdateSourceTrigger=PropertyChanged}"/>
+                        <RadioButton Foreground="Black"
+                                     Content="Незавершенные"
+                                     IsChecked="{Binding NoCompletStatus,
+                                                 UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </WrapPanel>
+        <ListBox Grid.Row="2"
+                 Background="Transparent"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Padding="8"
+                 SelectedItem="{Binding SelectProject,
+                                UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.Resources>
+                <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}">
+                    
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type pm:Project}">
+                    <DataTemplate.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="#D9D9D9"/>
+                            <Setter Property="Padding" Value="4, 2"/>
+                        </Style>
+                    </DataTemplate.Resources>
+                    <Grid Width="160" Height="auto">
+                        <Button Style="{StaticResource BtnHeaderWindow}"
+                                Width="160"
+                                Panel.ZIndex="1"
+                                Command="{Binding DataContext.OpenInfoProjectCommand, 
+                                    RelativeSource={RelativeSource AncestorType=Page}}"
+                                CommandParameter="{Binding DataContext, 
+                                    RelativeSource={RelativeSource Mode=Self}}"/>
+                        <StackPanel Margin="0, 42, 0, 20">
+                            <TextBlock Text="{Binding Name}"
+                                       Height="40"
+                                       TextWrapping="Wrap"
+                                       ToolTip="{Binding Name}"
+                                       FontSize="14"
+                                       FontWeight="Medium"
+                                       Margin="0,0,0,4"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Начало: " Grid.Column="0" Grid.Row="0"/>
+                                <TextBlock Text="{Binding StartDate}" Grid.Column="1" Grid.Row="0"/>
+                                <TextBlock Text="Окончание: " Grid.Column="0" Grid.Row="1"/>
+                                <TextBlock Text="{Binding CompletDate}" Grid.Column="1" Grid.Row="1"/>
+                            </Grid>
+                        </StackPanel>
+                        <fa:SvgAwesome x:Name="Folder" Icon="Solid_Folder"
+                                       Foreground="#46486C"
+                                       Panel.ZIndex="-1"/>
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Folder" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Opacity="0.2"
+                                                  BlurRadius="7"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemsSource>
+                <CompositeCollection>
+                    <ListBoxItem Visibility="{Binding VisibilityAdmin}">
+                        <ListBoxItem.Content>
+                            <Button Style="{StaticResource BtnHeaderWindow}"
+                                    Width="160"
+                                    Command="{Binding AddProjectCommand}">
+                                <fa:SvgAwesome Icon="Solid_FolderPlus"
+                                               Width="160"
+                                               Foreground="#46486C"
+                                               Cursor="Hand"
+                                               x:Name="Folder1"/>
+                            </Button>
+                        </ListBoxItem.Content>
+                        <ListBoxItem.Style>
+                            <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect Opacity="0.2"
+                                                  BlurRadius="7"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBoxItem.Style>
+                    </ListBoxItem>
+                    <CollectionContainer Collection="{Binding Source={StaticResource SourceProject}}"/>
+                    <d:CollectionContainer Collection="{d:SampleData ItemCount=5}"/>
+                </CompositeCollection>
+            </ListBox.ItemsSource>
+        </ListBox>
+    </Grid>
+</Page>

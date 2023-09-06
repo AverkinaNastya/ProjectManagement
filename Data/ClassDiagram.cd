@@ -1,0 +1,838 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjectManagement.Department">
+    <Position X="38.75" Y="25.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Employee">
+    <Position X="40.5" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAQAgkCAAAABAAQQADAAAACACAAAQAQAAAQA=</HashCode>
+      <FileName>Models\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Message">
+    <Position X="38.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAACIAAAAAAAEAACAABAAA=</HashCode>
+      <FileName>Models\Message.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Notification">
+    <Position X="47.5" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAAAAAAAAAACAAAAAABAAAACAABAAA=</HashCode>
+      <FileName>Models\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Phase">
+    <Position X="47.5" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAACAQAAAAAAAAAAAAIAAQAAAA=</HashCode>
+      <FileName>Models\Phase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Post">
+    <Position X="44" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAIAAIAAAAAAAAAQAGAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Post.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Project">
+    <Position X="45.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAIAAAAAAAQACAAAAAAAAAAAAkAABAA=</HashCode>
+      <FileName>Models\Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ProjectManagementContext">
+    <Position X="49.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAwAAAEBCAAAAAAGAAAAAAAAAAIAQAABQA=</HashCode>
+      <FileName>Models\ProjectManagementContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Status">
+    <Position X="44" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Status.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Task">
+    <Position X="42.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAAAEAAIAAARAAAAAAAQBAAAAJAAQAAAAAQAABAg=</HashCode>
+      <FileName>Models\Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="41.75" Y="19.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="ProjectManagement.MainWindow.RECT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.MainWindow.MONITORINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.MainWindow.POINT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.MainWindow.MINMAXINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAIgAAAAAAAAAAIARAAAAAAAQ=</HashCode>
+      <FileName>Views\Windows\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.App">
+    <Position X="37" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.AddDepartmentWindowViewModel">
+    <Position X="15" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAIAAAAAAACAAAAAAAAAQAAAAAAgAAAABAAAAggAA=</HashCode>
+      <FileName>ViewModels\AddDepartmentWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.AddEmployeeTaskWindowViewModel">
+    <Position X="20.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAACCDAAACAAAAAACAAAAgAAACAAAAAgwAA=</HashCode>
+      <FileName>ViewModels\AddEmployeeTaskWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.AddEmployeeWindowViewModel">
+    <Position X="26.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAAAAIACAACFgAAAAAAQAACBAAAgACACAwAAQBgBA=</HashCode>
+      <FileName>ViewModels\AddEmployeeWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.ViewModel">
+    <Position X="18.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAABAAAIAAAAAAAgAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>ViewModels\Base\ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.AddPhaseWindowViewModel">
+    <Position X="13.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAADAAAAAAEAQQAAAAAAgAAAAAAAAAAgAA=</HashCode>
+      <FileName>ViewModels\AddPhaseWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.AddPostWindowViewModel">
+    <Position X="16.75" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBAAIAAAAAAFCAQAAIAAgAQAEAAAAgAAAAAAAAAAiAA=</HashCode>
+      <FileName>ViewModels\AddPostWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.AddProjectWindowViewModel">
+    <Position X="20.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAJEAEUAAACCCgBGOgAAQACUAAAoEBAAAAACAhwAA=</HashCode>
+      <FileName>ViewModels\AddProjectWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.AddTaskWindowViewModel">
+    <Position X="23.75" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAoQIEAHWCABSDQCEFIAAAQAKEAAlgAQgAAMAYAkzAA=</HashCode>
+      <FileName>ViewModels\AddTaskWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.AuthorizationWindowViewModel">
+    <Position X="13.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACAAAEAAAAAAAQIgAIIAAAAAAAAwAAAAAAA=</HashCode>
+      <FileName>ViewModels\AuthorizationWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.EditDepartmentWindowViewModel">
+    <Position X="11.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAIAAAAAAACAAAAAIAAAQAAQIAAgAAAAAAAACAgAA=</HashCode>
+      <FileName>ViewModels\EditDepartmentWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.EditEmployeesProjectWindowViewModel">
+    <Position X="16.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAACCDAAAKAAAAAACQAAAgAAACAAAAAgwAA=</HashCode>
+      <FileName>ViewModels\EditEmployeesProjectWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.EditEmployeeWindowViewModel">
+    <Position X="22.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAIACABCAgAQAAAAQAACBAAAgAAAAgwAAQFgBA=</HashCode>
+      <FileName>ViewModels\EditEmployeeWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.EditPostWindowViewModel">
+    <Position X="28.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAIAAAAACACAQAAAAIAAQACAAAAgAAAAAAAAAAgAA=</HashCode>
+      <FileName>ViewModels\EditPostWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.EditTaskWindowViewModel">
+    <Position X="9.75" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIgBAgIYAAAiEAgYABAAAQRCAAABAAAgADBAACA=</HashCode>
+      <FileName>ViewModels\EditTaskWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.LeftMenuBarUIViewModel">
+    <Position X="15" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAwAIEAZRAIACAGAAhAAAAAlQAiBGoAGACIBAACAgSA=</HashCode>
+      <FileName>ViewModels\LeftMenuBarUIViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.MainPageViewModel">
+    <Position X="18.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAABAAACAAAEAQAAAAAAIAAASIQAAAAQA=</HashCode>
+      <FileName>ViewModels\MainPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.MainWindowViewModel">
+    <Position X="22" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAQAAAIAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ViewModels\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.MyTasksPageViewModel">
+    <Position X="25.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAABAAAAAQCAAAAAAAAEQAAAAAAAAAAAAIQAAAABA=</HashCode>
+      <FileName>ViewModels\MyTasksPageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.NewEmployeeWindowViewModel">
+    <Position X="9.75" Y="7" Width="1.5" />
+    <InheritanceLine Type="ProjectManagement.ViewModels.ViewModel" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="19.25" Y="13.25" />
+        <Point X="19.25" Y="12.665" />
+        <Point X="10.5" Y="12.665" />
+        <Point X="10.5" Y="12.405" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QAQAJCAAAQAJAAAAAAAAAAQgDAAAAABCAAAQIQAEABA=</HashCode>
+      <FileName>ViewModels\NewEmployeeWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.OrganizationalStructurePageViewModel">
+    <Position X="8" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CxoAAEAAgBAgATwEYCEEAACQCSIIIAIAAKjAAJAkSBA=</HashCode>
+      <FileName>ViewModels\OrganizationalStructurePageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.Page404ViewModel">
+    <Position X="18.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Page404ViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.ProjectsPageViewModel">
+    <Position X="24.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABCQwIAACIDAgASAgAUARABAAAAIgABAAAgAJQYA=</HashCode>
+      <FileName>ViewModels\ProjectsPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.ProjectWindowViewModel">
+    <Position X="8" Y="16.25" Width="1.5" />
+    <InheritanceLine Type="ProjectManagement.ViewModels.ViewModel" FixedToPoint="true">
+      <Path>
+        <Point X="19.25" Y="15.382" />
+        <Point X="19.25" Y="15.875" />
+        <Point X="8.75" Y="15.875" />
+        <Point X="8.75" Y="16.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>DFAAAEAAEQEQOVACZ6BQCUUCBZCAKsAYAIAIQyICRAA=</HashCode>
+      <FileName>ViewModels\ProjectWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.ViewModelHeaderWindowUI">
+    <Position X="11.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBCAAAAAAAAAAAAEAARAAAIAAAAAAAIBAAgCAAAIA=</HashCode>
+      <FileName>ViewModels\ViewModelHeaderWindowUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.ViewModelsResolver" BaseTypeListCollapsed="true">
+    <Position X="39" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ViewModels\ViewModelsResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Models.ChangingDepartment">
+    <Position X="39" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Models\ChangingDepartment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Models.ChangingEmployee">
+    <Position X="39" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\ChangingEmployee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Models.ChangingListEmployees">
+    <Position X="41" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ChangingListEmployees.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Models.ChangingPost">
+    <Position X="41" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Models\ChangingPost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Models.ChangingProject">
+    <Position X="44.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ChangingProject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Models.ChangingTask">
+    <Position X="44.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Models\ChangingTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Models.CurrentEmployee">
+    <Position X="37" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CurrentEmployee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Classes.FerialDays">
+    <Position X="41" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Classes\FerialDays.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Classes.LevenshteinDistance">
+    <Position X="41" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Classes\LevenshteinDistance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Commands.Base.Command">
+    <Position X="37" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Commands\Base\Command.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Commands.RelayCommand">
+    <Position X="39" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQCAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Commands\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.HeightPageToSizeBtnConvecter" BaseTypeListCollapsed="true">
+    <Position X="46" Y="32" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\HeightPageToSizeBtnConvecter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.MessageToAlignmentConverter" BaseTypeListCollapsed="true">
+    <Position X="42.5" Y="30.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\MessageToAlignmentConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.PhaseToTasksStatusConverter" BaseTypeListCollapsed="true">
+    <Position X="44.25" Y="30.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\PhaseToTasksStatusConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.ResizeModeToVisibilityBtnMenuConverter" BaseTypeListCollapsed="true">
+    <Position X="42.5" Y="32" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\ResizeModeToVisibilityBtnMenuConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.StatusMenuToIconMenuConvecter" BaseTypeListCollapsed="true">
+    <Position X="44.25" Y="32" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\StatusMenuToIconMenuConvecter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.StatusMenuToVisibilityMenuConvecter" BaseTypeListCollapsed="true">
+    <Position X="46" Y="30.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\StatusMenuToVisibilityMenuConvecter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.TaskAndDateToBackgroundConverter" BaseTypeListCollapsed="true">
+    <Position X="39" Y="32" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\TaskAndDateToBackgroundConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.TasksToOrderByTasksConverter" BaseTypeListCollapsed="true">
+    <Position X="40.75" Y="32" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\TasksToOrderByTasksConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.TaskToDateStartConvecter" BaseTypeListCollapsed="true">
+    <Position X="39" Y="30.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\TaskToDateStartConvecter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.15" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.WidthWindowToWidthLeftMenuUIConvecter" BaseTypeListCollapsed="true">
+    <Position X="40.75" Y="30.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\WidthWindowToWidthLeftMenuUIConvecter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Services.NavigatorPages.Navigation">
+    <Position X="44.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEAEAIQAAAAAEAAAAAEAAAEAAAQAAAQAAQAoAAACA=</HashCode>
+      <FileName>Services\NavigatorPages\Navigation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Services.NavigatorPages.PagesResolver" BaseTypeListCollapsed="true">
+    <Position X="41" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Services\NavigatorPages\PagesResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Services.UserDialogServices" BaseTypeListCollapsed="true">
+    <Position X="42.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ADQRAQAABsEG0CAAAAMAABAkQAYAgEESICCIBBAAQAA=</HashCode>
+      <FileName>Services\UserDialogServices.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Pages.MainPage" BaseTypeListCollapsed="true">
+    <Position X="41.75" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Pages.MyTasksPage" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\MyTasksPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Pages.OrganizationalStructurePage" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\OrganizationalStructurePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Pages.Page404" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\Page404.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Pages.ProjectsPage" BaseTypeListCollapsed="true">
+    <Position X="45.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\ProjectsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.UserControls.HeaderWindowUI" BaseTypeListCollapsed="true">
+    <Position X="45.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\UserControls\HeaderWindowUI.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.UserControls.LeftMenuBarUI" BaseTypeListCollapsed="true">
+    <Position X="45.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\UserControls\LeftMenuBarUI.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.AddDepartmentWindow" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\AddDepartmentWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.AddEmployeeTaskWindow" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\AddEmployeeTaskWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.AddEmployeeWindow" BaseTypeListCollapsed="true">
+    <Position X="40" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\AddEmployeeWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.AddPhaseWindow" BaseTypeListCollapsed="true">
+    <Position X="41.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\AddPhaseWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.AddPostWindow" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\AddPostWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.AddProjectWindow" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\AddProjectWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.AddTaskWindow" BaseTypeListCollapsed="true">
+    <Position X="40" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\AddTaskWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.AuthorizationWindow" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="19.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="ProjectManagement.Views.Windows.AuthorizationWindow.RECT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\AuthorizationWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.AuthorizationWindow.MONITORINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\AuthorizationWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.AuthorizationWindow.POINT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\AuthorizationWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.AuthorizationWindow.MINMAXINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\AuthorizationWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAIgAAAAAAAAAAIAQAAAAAAAQ=</HashCode>
+      <FileName>Views\Windows\AuthorizationWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.EditDepartmentWindow" BaseTypeListCollapsed="true">
+    <Position X="36.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\EditDepartmentWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.EditEmployeesProjectWindow" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\EditEmployeesProjectWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.EditEmployeeWindow" BaseTypeListCollapsed="true">
+    <Position X="40" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\EditEmployeeWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.EditPostWindow" BaseTypeListCollapsed="true">
+    <Position X="41.75" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\EditPostWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.EditTaskWindow" BaseTypeListCollapsed="true">
+    <Position X="38.25" Y="19.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="ProjectManagement.Views.Windows.EditTaskWindow.RECT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\EditTaskWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.EditTaskWindow.MONITORINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\EditTaskWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.EditTaskWindow.POINT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\EditTaskWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.EditTaskWindow.MINMAXINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\EditTaskWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAIgAAAAAAAAAAIAQAAAAAAAQ=</HashCode>
+      <FileName>Views\Windows\EditTaskWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.NewEmployeeWindow" BaseTypeListCollapsed="true">
+    <Position X="40" Y="19.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="ProjectManagement.Views.Windows.NewEmployeeWindow.RECT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\NewEmployeeWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.NewEmployeeWindow.MONITORINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\NewEmployeeWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.NewEmployeeWindow.POINT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\NewEmployeeWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.NewEmployeeWindow.MINMAXINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\NewEmployeeWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAIgAAAAAAAAAAIAQAAAAAAAQ=</HashCode>
+      <FileName>Views\Windows\NewEmployeeWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.249" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.ProjectWindow" BaseTypeListCollapsed="true">
+    <Position X="43.5" Y="19.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="ProjectManagement.Views.Windows.ProjectWindow.RECT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\ProjectWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.ProjectWindow.MONITORINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\ProjectWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.ProjectWindow.POINT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\ProjectWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ProjectManagement.Views.Windows.ProjectWindow.MINMAXINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Views\Windows\ProjectWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAIgAAAAAAAAAAIAQAAAAAAAQ=</HashCode>
+      <FileName>Views\Windows\ProjectWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.WindowStateToIconConvecter" BaseTypeListCollapsed="true">
+    <Position X="47.75" Y="32" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\WindowStateToIconConvecter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.Infrastructure.Converter.WindowStateToToolTipConvecter" BaseTypeListCollapsed="true">
+    <Position X="47.75" Y="30.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Converter\WindowStateToToolTipConvecter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.EditProjectWindowViewModel">
+    <Position X="27.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAIAAEEAAACAAQACAACAQAAAAAAgCAAAAAAAAAgAA=</HashCode>
+      <FileName>ViewModels\EditProjectWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.ViewModels.EditPhaseWindowViewModel">
+    <Position X="29" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAMgAAAAAACACgAAAAAAQBAAAAAgAAAAAAAAAAgAA=</HashCode>
+      <FileName>ViewModels\EditPhaseWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.EditProjectWindow">
+    <Position X="47" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\EditProjectWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectManagement.Views.Windows.EditPhaseWindow">
+    <Position X="47" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Windows\EditPhaseWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ProjectManagement.Services.NavigatorPages.IPageResolver">
+    <Position X="46.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\NavigatorPages\IPageResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjectManagement.Services.IUserDialog">
+    <Position X="46.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAQAAAMEG0AAAAAIAAAAAAAIAgEECAAAABAAAQAA=</HashCode>
+      <FileName>Services\IUserDialog.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjectManagement.ViewModels.Base.IViewModelsResolver">
+    <Position X="46.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ViewModels\Base\IViewModelsResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
